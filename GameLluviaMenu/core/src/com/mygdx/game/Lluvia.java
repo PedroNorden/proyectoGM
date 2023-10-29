@@ -45,15 +45,15 @@ public class Lluvia {
 
     public boolean actualizarMovimiento(Tarro tarro) {
         if(TimeUtils.nanoTime() - lastDropTime > 100000000) crearGotaDeLluvia();
-
+    
         for (int i = 0; i < gotas.size; i++) {
             Gota gota = gotas.get(i);
             Rectangle position = gota.getPosition();
             position.y -= 300 * Gdx.graphics.getDeltaTime();
-
+    
             if(position.y + 64 < 0) {
                 gotas.removeIndex(i);
-            } else if(position.overlaps(tarro.getArea())) {
+            } else if(gota.colisionaCon(tarro)) { 
                 gota.actuar(tarro);
                 if (gota instanceof GotaBuena) {
                     dropSound.play();
