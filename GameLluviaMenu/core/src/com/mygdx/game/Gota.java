@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public abstract class Gota {
+public abstract class Gota implements Colisionable{
     protected Rectangle position;
     protected Texture texture;
 
@@ -21,5 +21,12 @@ public abstract class Gota {
 
     public void dibujar(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y);
+    }
+    @Override
+    public boolean colisionaCon(Colisionable objeto) {
+        if (objeto instanceof Tarro) {
+            return this.getPosition().overlaps(((Tarro) objeto).getArea());
+        }
+        return false;
     }
 }
