@@ -92,9 +92,9 @@ public class Tarro implements colisionable {
 	}
 	
 	@Override
-	public boolean colisionaCon(Colisionable otro) {
-	if (otro instanceof Gota) {
-	    return this.getArea().overlaps(((Gota) otro).getPosition());
+	public boolean colisionaCon(Colisionable objeto) {
+	if (objeto instanceof Gota) {
+	    return this.getArea().overlaps(((Gota) objeto).getPosition());
 	}
 	return false;
 	} 
