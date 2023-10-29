@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 
 
-public class Tarro implements colisionable {
+public class Tarro implements Colisionable {
 	private Rectangle bucket;
 	private Texture bucketImage;
 	private Sound sonidoHerido;
