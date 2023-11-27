@@ -10,7 +10,7 @@ public abstract class Gota implements Colisionable{
 
     public Gota(Texture texture, float x, float y) {
         this.texture = texture;
-        this.position = new Rectangle(x, y, 64, 64);
+        this.position = new Rectangle(x, y, 34, 52);
     }
 
     public Rectangle getPosition() {
