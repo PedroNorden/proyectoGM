@@ -22,11 +22,7 @@ public abstract class Gota implements Colisionable{
     public void dibujar(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y);
     }
-    @Override
-    public boolean colisionaCon(Colisionable objeto) {
-        if (objeto instanceof Tarro) {
-            return this.getPosition().overlaps(((Tarro) objeto).getArea());
-        }
-        return false;
-    }
+    
+    public abstract boolean colisionaCon(Tarro objeto);
+    
 }
