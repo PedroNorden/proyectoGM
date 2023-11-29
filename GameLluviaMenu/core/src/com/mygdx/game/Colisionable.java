@@ -1,5 +1,5 @@
 package com.mygdx.game;
 
 public interface Colisionable {
-    boolean colisionaCon(Colisionable objeto);
+    boolean colisionaCon(Tarro tarro);
 }
