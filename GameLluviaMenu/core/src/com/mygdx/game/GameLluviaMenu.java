@@ -6,10 +6,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 	public class GameLluviaMenu extends Game {
 
+		private static GameLluviaMenu instance;
+		
 		private SpriteBatch batch;
 		private BitmapFont font;
 		private int higherScore;
 
+		private GameLluviaMenu() {}
+		
 		public void create() {
 			batch = new SpriteBatch();
 			font = new BitmapFont(); // use libGDX's default Arial font
@@ -41,5 +45,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 			this.higherScore = higherScore;
 		}
 		
+		public static GameLluviaMenu getInstance() {
+			if(instance == null) {
+				instance = new GameLluviaMenu();
+			}
+			return instance;
+		}
 
 	}
