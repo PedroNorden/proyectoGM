@@ -11,4 +11,9 @@ public class GotaBuena extends Gota {
     public void actuar(Tarro tarro) {
         tarro.sumarPuntos(10);
     }
+    
+    @Override
+    public boolean colisionaCon(Tarro tarro) {
+    	return this.getPosition().overlaps(tarro.getArea());
+    }
 }
