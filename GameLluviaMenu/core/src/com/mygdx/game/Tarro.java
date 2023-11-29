@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 
 
-public class Tarro implements Colisionable {
+public class Tarro {
 	private Rectangle bucket;
 	private Texture bucketImage;
 	private Sound sonidoHerido;
@@ -91,11 +91,4 @@ public class Tarro implements Colisionable {
 	   return herido;
 	}
 	
-	@Override
-	public boolean colisionaCon(Colisionable objeto) {
-	if (objeto instanceof Gota) {
-	    return this.getArea().overlaps(((Gota) objeto).getPosition());
-	}
-	return false;
-	} 
 }
