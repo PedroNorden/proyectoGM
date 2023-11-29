@@ -11,4 +11,9 @@ public class GotaMala extends Gota {
     public void actuar(Tarro tarro) {
         tarro.dañar();
     }
+    
+    @Override
+    public boolean colisionaCon(Tarro tarro) {
+    	return this.getPosition().overlaps(tarro.getArea());
+    }
 }
