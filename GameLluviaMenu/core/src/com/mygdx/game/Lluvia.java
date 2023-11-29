@@ -15,14 +15,19 @@ public class Lluvia {
     private long lastDropTime;
     private Texture gotaBuenaTexture;
     private Texture gotaMalaTexture;
+    private Texture gotaOroTexture;
+    private Texture EstrellaTexture;
+    
     private Sound dropSound;
     private Music rainMusic;
 
-    public Lluvia(Texture gotaBuenaTexture, Texture gotaMalaTexture, Sound ss, Music mm) {
+    public Lluvia(Texture gotaBuenaTexture, Texture gotaMalaTexture, Texture gotaOroTexture,Texture EstrellaTexture, Sound ss, Music mm) {
         this.rainMusic = mm;
         this.dropSound = ss;
         this.gotaBuenaTexture = gotaBuenaTexture;
         this.gotaMalaTexture = gotaMalaTexture;
+        this.gotaOroTexture = gotaOroTexture;
+        this.EstrellaTexture = EstrellaTexture;
     }
 
     public void crear() {
@@ -33,13 +38,19 @@ public class Lluvia {
     }
 
     private void crearGotaDeLluvia() {
-        float x = MathUtils.random(0, 800-64);
+        float x = MathUtils.random(0, 800 - 64);
         float y = 480;
-        if (MathUtils.random(1,10) < 5) {
+
+        int randomValue = MathUtils.random(1, 10);
+
+        if (randomValue <= 3) {
             gotas.add(new GotaBuena(gotaBuenaTexture, x, y));
-        } else {
+        } else if (randomValue <= 9) {
             gotas.add(new GotaMala(gotaMalaTexture, x, y));
+        } else {
+            gotas.add(new GotaOro(gotaOroTexture, x, y));
         }
+
         lastDropTime = TimeUtils.nanoTime();
     }
 
