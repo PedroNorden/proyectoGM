@@ -39,6 +39,10 @@ public class Tarro {
 	public void sumarPuntos(int pp) {
 		puntos+=pp;
 	}
+
+	public void sumarVida() {
+		vidas++;
+	}
 		
 	
 	public void crear() {
