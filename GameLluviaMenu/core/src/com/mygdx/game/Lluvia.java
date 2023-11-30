@@ -44,7 +44,7 @@ public class Lluvia {
         int randomValue = MathUtils.random(1, 10);
 
         if (randomValue <= 3) {
-            gotas.add(new GotaBuena(gotaBuenaTexture, x, y));
+            gotas.add(new GotaBuena(gotaBuenaTexture, x, y, dropSound));
         } else if (randomValue <= 9) {
             gotas.add(new GotaMala(gotaMalaTexture, x, y));
         } else {
@@ -66,9 +66,7 @@ public class Lluvia {
                 gotas.removeIndex(i);
             } else if(gota.colisionaCon(tarro)) { 
                 gota.actuar(tarro);
-                if (gota instanceof GotaBuena) {
-                    dropSound.play();
-                } else if (tarro.getVidas() <= 0) {
+                if (tarro.getVidas() <= 0) {
                     return false;
                 }
                 gotas.removeIndex(i);
