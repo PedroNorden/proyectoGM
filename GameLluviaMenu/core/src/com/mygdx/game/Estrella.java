@@ -3,33 +3,20 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.audio.Sound;
 
-public class Estrella implements Colisionable{
-	
-	private Rectangle position;
-	private Texture texture;
-	
-	public Estrella(Texture texture, float x, float y) {
-		
-		this.texture = texture;
-        this.position = new Rectangle(x, y, 34, 52);
-
+public class Estrella extends Gota{
+    public Estrella(Texture texture, float x, float y) {
+        super(texture, x, y);
     }
 
-	public Rectangle getPosition() {
-        return position;
-    }
-	
-	public void dibujar(SpriteBatch batch) {
-        batch.draw(texture, position.x, position.y);
-    }
-	
+    @Override
     public void actuar(Tarro tarro) {
-        tarro.sumarPuntos(30);
+        //tarro.sumarPuntos(10);
     }
-    
+
+    @Override
     public boolean colisionaCon(Tarro tarro) {
-    	return this.getPosition().overlaps(tarro.getArea());
+        return this.getPosition().overlaps(tarro.getArea());
     }
-	
 }
