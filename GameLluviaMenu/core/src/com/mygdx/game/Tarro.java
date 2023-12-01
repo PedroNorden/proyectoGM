@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Rectangle;
 public class Tarro {
 	private Rectangle bucket;
 	private Texture bucketImage;
-	private Sound sonidoHerido;
+	
 	private int vidas = 3;
 	private int puntos = 0;
 	private int velx = 400;
@@ -21,9 +21,8 @@ public class Tarro {
 	private int tiempoHerido;
 	   
 	   
-	public Tarro(Texture tex, Sound ss) {
+	public Tarro(Texture tex) {
 	   bucketImage = tex;
-	   sonidoHerido = ss;
 	}
 	   
 	public int getVidas() {
@@ -39,11 +38,10 @@ public class Tarro {
 	public void sumarPuntos(int pp) {
 		puntos+=pp;
 	}
-
+		
 	public void sumarVida() {
 		vidas++;
 	}
-		
 	
 	public void crear() {
 	      bucket = new Rectangle();
@@ -56,7 +54,7 @@ public class Tarro {
 	  vidas--;
 	  herido = true;
 	  tiempoHerido=tiempoHeridoMax;
-	  sonidoHerido.play();
+	  
 	}
 	public void dibujar(SpriteBatch batch) {
 	 if (!herido)  
