@@ -1,4 +1,4 @@
-package com.mygdx.game;
+/*package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
@@ -60,41 +60,7 @@ public class Lluvia {
         
     }
 
-    /*public boolean actualizarMovimiento(Tarro tarro) {
-        if(TimeUtils.nanoTime() - lastDropTime > 100000000) crearGotaDeLluvia();
-    
-        for (int i = 0; i < gotas.size; i++) {
-            Gota gota = gotas.get(i);
-            Rectangle position = gota.getPosition();
-            position.y -= 300 * Gdx.graphics.getDeltaTime();
-    
-            if(position.y + 64 < 0) {
-                gotas.removeIndex(i);
-            } else if(gota.colisionaCon(tarro)) { 
-                gota.actuar(tarro);
-                if (tarro.getVidas() <= 0) {
-                    return false;
-                }
-                gotas.removeIndex(i);
-            }
-        }
-        return true;
-    }*/
-
-    public void actualizarDibujoLluvia(SpriteBatch batch) {
-        for (Gota gota : gotas) {
-            gota.dibujar(batch);
-        }
-    }
-    
-    
-    public boolean estaMuerto(Tarro tarro) {
-    	if(tarro.getVidas() <= 0) {
-    		return false;
-    	}
-    	return true;
-    }
-
+ 
     public void destruir() {
         dropSound.dispose();
         rainMusic.dispose();
@@ -104,9 +70,6 @@ public class Lluvia {
     	return gotas;
     }
     
-    /*public void setGota(Gota gota) {
-    	gotas.add(gota);
-    }*/
 
     public void pausar() {
         rainMusic.stop();
@@ -115,4 +78,4 @@ public class Lluvia {
     public void continuar() {
         rainMusic.play();
     }
-}
+}*/

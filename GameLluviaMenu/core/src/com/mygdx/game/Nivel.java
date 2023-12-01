@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public abstract class Nivel implements Screen {
@@ -16,12 +17,14 @@ public abstract class Nivel implements Screen {
 	private SpriteBatch batch;	   
 	private BitmapFont font;
 	private Tarro tarro;
-	protected Lluvia lluvia;
+	//private Lluvia lluvia;
+	private Array<Gota> gotas;
 
 	   
 	
 
 	public Nivel(final GameLluviaMenu game) {
+		gotas = new Array<>();
 		this.game = game;
         this.batch = game.getBatch();
         this.font = game.getFont();
@@ -40,7 +43,7 @@ public abstract class Nivel implements Screen {
          Sound goldDropSound = Gdx.audio.newSound(Gdx.files.internal("dropGoldSong2.wav"));
         
 	     Music rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
-         lluvia = new Lluvia(gota, gotaMala, gotaOro, Estrella, dropSound, badDropSound, goldDropSound, rainMusic);
+         //lluvia = new Lluvia(gota, gotaMala, gotaOro, Estrella, dropSound, badDropSound, goldDropSound, rainMusic);
 	      
 	      // camera
 	      camera = new OrthographicCamera();
@@ -50,7 +53,7 @@ public abstract class Nivel implements Screen {
 	      tarro.crear();
 	      
 	      // creacion de la lluvia
-	      lluvia.crear();
+	      
 	}
 
 	@Override
@@ -62,6 +65,8 @@ public abstract class Nivel implements Screen {
 		//actualizar 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+		tarro.dibujar(batch);
+		actualizarDibujoLluvia(batch);
 		//dibujar textos
 		font.draw(batch, "Gotas totales: " + tarro.getPuntos(), 5, 475);
 		font.draw(batch, "Vidas : " + tarro.getVidas(), 670, 475);
@@ -71,7 +76,7 @@ public abstract class Nivel implements Screen {
 			// movimiento del tarro desde teclado
 	        tarro.actualizarMovimiento();        
 			// caida de la lluvia 
-	       if (!lluvia.estaMuerto(tarro)) {
+	       if (!actualizarMovimiento(tarro)) {
 	    	  //actualizar HigherScore
 	    	  if (game.getHigherScore()<tarro.getPuntos())
 	    		  game.setHigherScore(tarro.getPuntos());  
@@ -81,8 +86,7 @@ public abstract class Nivel implements Screen {
 	       }
 		}
 		
-		tarro.dibujar(batch);
-		lluvia.actualizarDibujoLluvia(batch);
+		
 		
 		batch.end();
 	}
@@ -94,7 +98,7 @@ public abstract class Nivel implements Screen {
 	@Override
 	public void show() {
 	  // continuar con sonido de lluvia
-	  lluvia.continuar();
+		iniciarNivel();
 	}
 
 	@Override
@@ -104,7 +108,7 @@ public abstract class Nivel implements Screen {
 
 	@Override
 	public void pause() {
-		lluvia.pausar();
+		//lluvia.pausar();
 		game.setScreen(new PausaScreen(game, this)); 
 	}
 
@@ -116,12 +120,28 @@ public abstract class Nivel implements Screen {
 	@Override
 	public void dispose() {
       tarro.destruir();
-      lluvia.destruir();
+      destruir();
 
 	}
 	
+	public void addGotas(Gota gota) {
+		gotas.add(gota);
+	}
+	
+	public Array<Gota> getGotas(){
+		return gotas;
+	}
+	public void actualizarDibujoLluvia(SpriteBatch batch) {
+		for (Gota gota : gotas) {
+			gota.dibujar(batch);
+		}
+	}
+	
+	
+	public abstract void destruir();
 	public abstract void iniciarNivel();
 	public abstract boolean actualizarMovimiento(Tarro tarro);
-	public abstract void actualizarDibujoLluvia(SpriteBatch batch);
+
+
 
 }
