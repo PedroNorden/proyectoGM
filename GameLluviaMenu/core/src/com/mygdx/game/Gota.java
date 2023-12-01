@@ -19,9 +19,9 @@ public abstract class Gota{
     public Rectangle getPosition() {
         return position;
     }
-
+    
     public Sound getSonido() {
-        return sonido;
+    	return sonido;
     }
 
     public abstract void actuar(Tarro tarro);
@@ -29,8 +29,8 @@ public abstract class Gota{
     public void dibujar(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y);
     }
-
-
+    
+    
     public abstract boolean colisionaCon(Tarro objeto);
-
+    
 }

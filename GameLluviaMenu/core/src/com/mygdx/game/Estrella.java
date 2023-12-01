@@ -3,7 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.audio.Sound;
 
 public class Estrella extends Gota{
     public Estrella(Texture texture, float x, float y) {
@@ -14,9 +13,9 @@ public class Estrella extends Gota{
     public void actuar(Tarro tarro) {
         //tarro.sumarPuntos(10);
     }
-
+    
     @Override
     public boolean colisionaCon(Tarro tarro) {
-        return this.getPosition().overlaps(tarro.getArea());
+    	return this.getPosition().overlaps(tarro.getArea());
     }
 }

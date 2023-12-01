@@ -1,15 +1,20 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 
 public class GotaMala extends Gota {
-    public GotaMala(Texture texture, float x, float y) {
-        super(texture, x, y);
+	
+	private GotaMalaComportamiento estrategia;
+	
+    public GotaMala(Texture texture, float x, float y, Sound sonido,  GotaMalaComportamiento estrategia) {
+        super(texture, x, y, sonido);
+        this.estrategia = estrategia;
     }
 
     @Override
     public void actuar(Tarro tarro) {
-        tarro.dañar();
+    	estrategia.ejecutarAccion(this, tarro, this.getSonido());
     }
     
     @Override

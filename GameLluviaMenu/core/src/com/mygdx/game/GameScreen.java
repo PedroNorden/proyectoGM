@@ -1,4 +1,4 @@
-package com.mygdx.game;
+/*package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -26,8 +26,8 @@ public class GameScreen implements Screen {
         this.batch = game.getBatch();
         this.font = game.getFont();
 		  // load the images for the droplet and the bucket, 64x64 pixels each 	     
-		  Sound hurtSound = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
-		  tarro = new Tarro(new Texture(Gdx.files.internal("bucket.png")),hurtSound);
+		  //Sound hurtSound = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
+		  tarro = new Tarro(new Texture(Gdx.files.internal("bucket.png")));
          
 	      // load the drop sound effect and the rain background "music" 
          Texture gota = new Texture(Gdx.files.internal("drop.png"));
@@ -36,9 +36,11 @@ public class GameScreen implements Screen {
          Texture Estrella =  new Texture(Gdx.files.internal("StarLluvia.png"));
          
          Sound dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+         Sound badDropSound = Gdx.audio.newSound(Gdx.files.internal("dropBadSong.wav"));
+         Sound goldDropSound = Gdx.audio.newSound(Gdx.files.internal("dropGoldSong2.wav"));
         
 	     Music rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
-         lluvia = new Lluvia(gota, gotaMala, gotaOro, Estrella, dropSound, rainMusic);
+         lluvia = new Lluvia(gota, gotaMala, gotaOro, Estrella, dropSound, badDropSound, goldDropSound, rainMusic);
 	      
 	      // camera
 	      camera = new OrthographicCamera();
@@ -118,4 +120,4 @@ public class GameScreen implements Screen {
 
 	}
 
-}
+}*/
