@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 		private SpriteBatch batch;
 		private BitmapFont font;
 		private int higherScore;
+		private Nivel nivelActual;
+		private int nivelNumero;
 
 		private GameLluviaMenu() {}
 		
@@ -18,6 +20,27 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 			batch = new SpriteBatch();
 			font = new BitmapFont(); // use libGDX's default Arial font
 			this.setScreen(new MainMenuScreen(this));
+			nivelNumero = 1;
+		}
+		
+		private void cargarNivel(int nivelNumero) {
+			switch(nivelNumero) {
+			case 1:
+				nivelActual = new NivelUno(this);
+				break;
+			case 2:
+				nivelActual = new NivelDos(this);
+				break;
+			case 3:
+				nivelActual = new NivelTres(this);
+				break;
+			}
+			setScreen(nivelActual);
+		}
+		
+		public void avanzarAlSiguienteNivel() {
+			nivelNumero++;
+			cargarNivel(nivelNumero);
 		}
 
 		public void render() {

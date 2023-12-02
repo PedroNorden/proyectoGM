@@ -27,8 +27,7 @@ public class NivelUno extends Nivel{
 	@Override
 	public void iniciarNivel() {
 		rainMusic.setLooping(true);
-		rainMusic.play();
-        
+		rainMusic.play();  
 	}
 	
 	public void destruir() {
@@ -66,6 +65,11 @@ public class NivelUno extends Nivel{
             	if (tarro.getVidas() <= 0) {
                     return false;
                 }
+            	if(tarro.getPuntos() >= 100)
+            	{
+            		destruir();
+            		((GameLluviaMenu) game).avanzarAlSiguienteNivel();
+            	}
             	super.getGotas().removeIndex(i);
             }
 		}

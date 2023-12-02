@@ -14,6 +14,7 @@ public class MainMenuScreen implements Screen {
 	private SpriteBatch batch;
 	private BitmapFont font;
 	private OrthographicCamera camera;
+	
 
 	public MainMenuScreen(final GameLluviaMenu game) {
 		this.game = game;
@@ -22,6 +23,7 @@ public class MainMenuScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 	}
+
 
 	@Override
 	public void render(float delta) {
