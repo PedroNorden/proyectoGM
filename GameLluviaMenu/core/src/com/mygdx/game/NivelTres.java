@@ -25,7 +25,7 @@ public class NivelTres extends Nivel{
         Sound badDropSound = Gdx.audio.newSound(Gdx.files.internal("dropBadSong.wav"));
         Sound goldDropSound = Gdx.audio.newSound(Gdx.files.internal("dropGoldSong2.wav"));
         Sound estrellaSound = Gdx.audio.newSound(Gdx.files.internal("StarLluviaSong2.wav"));
-        musica = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+        musica = Gdx.audio.newMusic(Gdx.files.internal("musicaNivel3.mp3"));
         this.factory = new NivelTresGotaFactory(gota, gotaMala, gotaOro, estrella, dropSound, badDropSound, goldDropSound, estrellaSound);
 		crearGotas();
 	}
