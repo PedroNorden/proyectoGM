@@ -23,7 +23,7 @@ public class NivelDos extends Nivel{
         Sound dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
         Sound badDropSound = Gdx.audio.newSound(Gdx.files.internal("dropBadSong.wav"));
         Sound goldDropSound = Gdx.audio.newSound(Gdx.files.internal("dropGoldSong2.wav"));
-        musica = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+        musica = Gdx.audio.newMusic(Gdx.files.internal("musicaNivel2.mp3"));
         this.factory = new NivelDosGotaFactory(gota, gotaMala, gotaOro, dropSound, badDropSound, goldDropSound);
 		crearGotas();
 	}
