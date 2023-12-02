@@ -19,6 +19,7 @@ public class Tarro {
 	private boolean herido = false;
 	private int tiempoHeridoMax=50;
 	private int tiempoHerido;
+	private int vidasTemporales = 3;
 	   
 	   
 	public Tarro(Texture tex) {
@@ -42,6 +43,13 @@ public class Tarro {
 	public void sumarVida() {
 		vidas++;
 	}
+	public void setVidasTemporales(int vidasTemporales) {
+        this.vidasTemporales = vidasTemporales;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
 	
 	public void crear() {
 	      bucket = new Rectangle();
