@@ -1,17 +1,21 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
+
 
 public class Estrella extends Gota{
-    public Estrella(Texture texture, float x, float y) {
-        super(texture, x, y);
+	
+	private EstrellaComportamiento estrategia;
+	
+    public Estrella(Texture texture, float x, float y, Sound sonido, EstrellaComportamiento estrategia) {
+        super(texture, x, y, sonido);
+        this.estrategia = estrategia;
     }
 
     @Override
     public void actuar(Tarro tarro) {
-        //tarro.sumarPuntos(10);
+    	estrategia.ejecutarAccion(this, tarro, this.getSonido());
     }
     
     @Override
